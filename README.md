@@ -90,7 +90,7 @@ A simulated chat interface where you can type a question and receive a response 
 No installation needed. Just open `index.html` in any modern browser.
 
 Or visit the live demo on GitHub Pages:  
-`https://[your-username].github.io/[your-repo-name]/`
+`https://alejandromeyer.github.io/avabot-agent/`
 
 ---
 
