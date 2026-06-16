@@ -1,4 +1,4 @@
-# AvaBot — AI Agent Simulation Sandbox
+# AvaBot - AI Agent Simulation Sandbox
 
 > ⚠️ **This is a UI prototype for demonstration purposes only.**  
 > No real AI, no connected APIs, no live agent functionality of any kind.
