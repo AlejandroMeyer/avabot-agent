@@ -1,0 +1,450 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AvaBot | AI Agent Simulator</title>
+    <!-- Visual Precompiled Stylesheet links -->
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    
+    <div id="root" class="app-container">
+      
+      <!-- 1. APP NAVBAR HEADER -->
+      <header class="app-header">
+        <div class="logo-block">
+          <div class="logo-icon">A</div>
+          <div class="logo-text">
+            <div class="logo-title">
+              <span class="logo-brand-btn">Avabot</span>
+              <span class="logo-brand-sec">Consulting</span>
+            </div>
+            <span class="logo-sub">AI Agent Simulation Sandbox</span>
+          </div>
+        </div>
+
+        <div class="header-action-group">
+          <!-- Reset Prototype button -->
+          <button 
+            id="reset-btn-top"
+            class="btn-reset"
+            title="Reset simulation parameters to default baseline"
+          >
+            <!-- Refresh Arrow SVG -->
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67"/>
+            </svg>
+            Reset Prototype
+          </button>
+
+          <!-- Dynamic Action Scenario Badge -->
+          <div id="active-scenario-badge" class="scenario-badge">
+            S1: Productivity Assistant
+          </div>
+        </div>
+      </header>
+
+      <!-- 2. BODY MAIN MULTI-PANE VIEWPORT -->
+      <main class="app-main">
+        
+        <!-- LEFT ASIDE: PARAMETERS CONFIGURATOR PANEL -->
+        <aside class="app-sidebar">
+          
+          <div class="sidebar-header">
+            <h2 class="sidebar-title">Strategic Design Decisions</h2>
+            <p class="sidebar-desc">Calibrate parameters. The mathematical average shifts AvaBot's scenario.</p>
+          </div>
+
+          <!-- DEMO PRESETS COMPONENT -->
+          <div class="presets-box">
+            <div class="presets-container">
+              <span class="presets-heading">Demo Blueprint Presets</span>
+              <div class="presets-grid">
+                <button id="preset-btn-S1" class="preset-btn">
+                  <span class="preset-btn-id">S1</span>
+                  <span class="preset-btn-label">Task Assistant</span>
+                </button>
+                <button id="preset-btn-S2" class="preset-btn">
+                  <span class="preset-btn-id">S2</span>
+                  <span class="preset-btn-label">Hybrid Manager</span>
+                </button>
+                <button id="preset-btn-S3" class="preset-btn">
+                  <span class="preset-btn-id">S3</span>
+                  <span class="preset-btn-label">Deep Architect</span>
+                </button>
+                <button id="preset-btn-S4" class="preset-btn">
+                  <span class="preset-btn-id">S4</span>
+                  <span class="preset-btn-label">Autonomous Agent</span>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- THE 7 SLIDERS SPECIFICATION -->
+          <div class="sliders-wrapper">
+            
+            <!-- STAGE 1: ADOPTION -->
+            <div class="slider-group">
+              <div class="slider-info-row">
+                <span class="slider-label-block">AI Adoption & Workflow</span>
+                <div class="slider-meta-block">
+                  <span id="val-lbl-adoption" class="slider-value-label">Lvl 1</span>
+                  <button id="info-btn-adoption" type="button" class="slider-info-btn">ⓘ</button>
+                </div>
+              </div>
+              <input type="range" id="input-adoption" class="slider-range-input" min="1" max="5" step="1" value="1" />
+              <div class="slider-extremes">
+                <span id="extreme-l-adoption">Speed of automation</span>
+                <span id="extreme-r-adoption">Deep end-to-end</span>
+              </div>
+              <!-- Tooltip overlay box -->
+              <div id="tooltip-adoption" class="slider-tooltip-overlay" style="display: none;">
+                <span class="slider-tooltip-header">Focus Paradigm:</span>
+                Efficiency vs. Total transformation
+              </div>
+            </div>
+
+            <!-- STAGE 2: TECHNOLOGY -->
+            <div class="slider-group">
+              <div class="slider-info-row">
+                <span class="slider-label-block">Technology & Infrastructure</span>
+                <div class="slider-meta-block">
+                  <span id="val-lbl-tech" class="slider-value-label">Lvl 1</span>
+                  <button id="info-btn-tech" type="button" class="slider-info-btn">ⓘ</button>
+                </div>
+              </div>
+              <input type="range" id="input-tech" class="slider-range-input" min="1" max="5" step="1" value="1" />
+              <div class="slider-extremes">
+                <span id="extreme-l-tech">Scalability</span>
+                <span id="extreme-r-tech">Constraints</span>
+              </div>
+              <!-- Tooltip overlay box -->
+              <div id="tooltip-tech" class="slider-tooltip-overlay" style="display: none;">
+                <span class="slider-tooltip-header">Focus Paradigm:</span>
+                Cloud-native vs. Legacy/On-prem
+              </div>
+            </div>
+
+            <!-- STAGE 3: HUMAN ROLE -->
+            <div class="slider-group">
+              <div class="slider-info-row">
+                <span class="slider-label-block">Human Role & Accountability</span>
+                <div class="slider-meta-block">
+                  <span id="val-lbl-human" class="slider-value-label">Lvl 1</span>
+                  <button id="info-btn-human" type="button" class="slider-info-btn">ⓘ</button>
+                </div>
+              </div>
+              <input type="range" id="input-human" class="slider-range-input" min="1" max="5" step="1" value="1" />
+              <div class="slider-extremes">
+                <span id="extreme-l-human">Human-led</span>
+                <span id="extreme-r-human">Autonomous</span>
+              </div>
+              <!-- Tooltip overlay box -->
+              <div id="tooltip-human" class="slider-tooltip-overlay" style="display: none;">
+                <span class="slider-tooltip-header">Focus Paradigm:</span>
+                Decision ownership level
+              </div>
+            </div>
+
+            <!-- STAGE 4: COST PRESSURE -->
+            <div class="slider-group">
+              <div class="slider-info-row">
+                <span class="slider-label-block">Cost Pressure & Viability</span>
+                <div class="slider-meta-block">
+                  <span id="val-lbl-cost" class="slider-value-label">Lvl 1</span>
+                  <button id="info-btn-cost" type="button" class="slider-info-btn">ⓘ</button>
+                </div>
+              </div>
+              <input type="range" id="input-cost" class="slider-range-input" min="1" max="5" step="1" value="1" />
+              <div class="slider-extremes">
+                <span id="extreme-l-cost">Economical</span>
+                <span id="extreme-r-cost">Constrained</span>
+              </div>
+              <!-- Tooltip overlay box -->
+              <div id="tooltip-cost" class="slider-tooltip-overlay" style="display: none;">
+                <span class="slider-tooltip-header">Focus Paradigm:</span>
+                Budget sensitivity
+              </div>
+            </div>
+
+            <!-- STAGE 5: BUSINESS MODEL -->
+            <div class="slider-group">
+              <div class="slider-info-row">
+                <span class="slider-label-block">Business Model & Value</span>
+                <div class="slider-meta-block">
+                  <span id="val-lbl-business" class="slider-value-label">Lvl 1</span>
+                  <button id="info-btn-business" type="button" class="slider-info-btn">ⓘ</button>
+                </div>
+              </div>
+              <input type="range" id="input-business" class="slider-range-input" min="1" max="5" step="1" value="1" />
+              <div class="slider-extremes">
+                <span id="extreme-l-business">Billable Hours</span>
+                <span id="extreme-r-business">Outcome-based</span>
+              </div>
+              <!-- Tooltip overlay box -->
+              <div id="tooltip-business" class="slider-tooltip-overlay" style="display: none;">
+                <span class="slider-tooltip-header">Focus Paradigm:</span>
+                How value is captured
+              </div>
+            </div>
+
+            <!-- STAGE 6: GEOPOLITICAL -->
+            <div class="slider-group">
+              <div class="slider-info-row">
+                <span class="slider-label-block">Geopolitical Fragmentation</span>
+                <div class="slider-meta-block">
+                  <span id="val-lbl-geopol" class="slider-value-label">Lvl 1</span>
+                  <button id="info-btn-geopol" type="button" class="slider-info-btn">ⓘ</button>
+                </div>
+              </div>
+              <input type="range" id="input-geopol" class="slider-range-input" min="1" max="5" step="1" value="1" />
+              <div class="slider-extremes">
+                <span id="extreme-l-geopol">Global AI</span>
+                <span id="extreme-r-geopol">Crisis-driven</span>
+              </div>
+              <!-- Tooltip overlay box -->
+              <div id="tooltip-geopol" class="slider-tooltip-overlay" style="display: none;">
+                <span class="slider-tooltip-header">Focus Paradigm:</span>
+                Market accessibility
+              </div>
+            </div>
+
+            <!-- STAGE 7: GOVERNANCE -->
+            <div class="slider-group">
+              <div class="slider-info-row">
+                <span class="slider-label-block">Governance & Regulation</span>
+                <div class="slider-meta-block">
+                  <span id="val-lbl-gov" class="slider-value-label">Lvl 1</span>
+                  <button id="info-btn-gov" type="button" class="slider-info-btn">ⓘ</button>
+                </div>
+              </div>
+              <input type="range" id="input-gov" class="slider-range-input" min="1" max="5" step="1" value="1" />
+              <div class="slider-extremes">
+                <span id="extreme-l-gov">Safe Adoption</span>
+                <span id="extreme-r-gov">Restricted</span>
+              </div>
+              <!-- Tooltip overlay box -->
+              <div id="tooltip-gov" class="slider-tooltip-overlay" style="display: none;">
+                <span class="slider-tooltip-header">Focus Paradigm:</span>
+                Compliance strictness
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Mobile Reset block -->
+          <div class="mobile-reset-section">
+            <button id="reset-btn-mob" class="mobile-reset-btn">
+              <!-- Refresh Arrow SVG -->
+              <svg style="width:0.875rem; height:0.875rem;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67"/>
+              </svg>
+              RESET SIMULATION
+            </button>
+          </div>
+        </aside>
+
+        <!-- RIGHT PANEL: DECISION INTELLIGENCE DASHBOARD -->
+        <section class="dashboard-section">
+          
+          <!-- EXECUTIVE METRICS GRID -->
+          <div class="metrics-row">
+            
+            <!-- PANEL 1: AI AGENT PROFILE -->
+            <div class="metric-card">
+              <div>
+                <h3 class="card-title">
+                  👤 AI Agent Profile
+                </h3>
+                <div class="profile-body">
+                  <p id="display-role" class="profile-role-display">
+                    Productivity Assistant
+                  </p>
+                  <p id="display-desc" class="profile-desc-display">
+                    AI augments individual tasks; humans own all deliverables.
+                  </p>
+                </div>
+              </div>
+
+              <!-- Automation breakdown grids -->
+              <div class="profile-stats-row">
+                <div class="profile-stat-col">
+                  <span class="profile-stat-lbl">Auto</span>
+                  <span id="stat-automation" class="profile-stat-val">25%</span>
+                </div>
+                <div class="profile-stat-col">
+                  <span class="profile-stat-lbl">Integ</span>
+                  <span id="stat-integration" class="profile-stat-val">15%</span>
+                </div>
+                <div class="profile-stat-col">
+                  <span class="profile-stat-lbl">Human</span>
+                  <span id="stat-human" class="profile-stat-val font-semibold">90%</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- PANEL 2: SWOT PROJECTIONS -->
+            <div class="metric-card">
+              <div>
+                <h3 class="card-title">
+                  🛡️ SWOT Projections
+                </h3>
+                <div class="swot-grid">
+                  <div class="swot-item s">
+                    <strong class="swot-item-lbl">S</strong>
+                    <p id="swot-s">Low implementation risk & rapid staff adoption</p>
+                  </div>
+                  <div class="swot-item w">
+                    <strong class="swot-item-lbl">W</strong>
+                    <p id="swot-w">Low volume scalability & manual review bottlenecks</p>
+                  </div>
+                  <div class="swot-item o">
+                    <strong class="swot-item-lbl">O</strong>
+                    <p id="swot-o">Immediate localized efficiency gains on reporting</p>
+                  </div>
+                  <div class="swot-item t">
+                    <strong class="swot-item-lbl">T</strong>
+                    <p id="swot-t">Manual user copy-paste review errors</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- PANEL 3: EXECUTIVE KEY METRICS -->
+            <div class="metric-card">
+              <div>
+                <h3 class="card-title">
+                  📊 Executive Metrics
+                </h3>
+                <div class="indicators-list">
+                  
+                  <!-- Metric A -->
+                  <div class="indicator-row">
+                    <div class="indicator-meta-row">
+                      <span>Time to Value</span>
+                      <span id="lbl-time">20%</span>
+                    </div>
+                    <div class="indicator-bar-track">
+                      <div id="bar-time" class="indicator-bar-fill" style="width: 20%;"></div>
+                    </div>
+                  </div>
+
+                  <!-- Metric B -->
+                  <div class="indicator-row">
+                    <div class="indicator-meta-row">
+                      <span>Governance Complexity</span>
+                      <span id="lbl-gov">10%</span>
+                    </div>
+                    <div class="indicator-bar-track">
+                      <div id="bar-gov" class="indicator-bar-fill" style="width: 10%;"></div>
+                    </div>
+                  </div>
+
+                  <!-- Metric C -->
+                  <div class="indicator-row">
+                    <div class="indicator-meta-row">
+                      <span>Technical Risk Exposure</span>
+                      <span id="lbl-risk">15%</span>
+                    </div>
+                    <div class="indicator-bar-track">
+                      <div id="bar-risk" class="indicator-bar-fill" style="width: 15%;"></div>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+
+              <!-- Average Config Indicator score -->
+              <div class="avg-score-section">
+                <span class="avg-score-lbl">Config Score Average</span>
+                <div id="avg-score" class="avg-score-val">1.0</div>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- CHAT INTERACTIVE LOGS SANDBOX -->
+          <div class="chat-module-card">
+            
+            <div class="chat-console-header">
+              <div class="chat-bot-details">
+                <div id="chat-header-avatar" class="chat-avatar-ring">
+                  S1
+                  <span class="chat-status-dot"></span>
+                </div>
+                <div class="chat-meta-pane">
+                  <strong id="chat-header-name" class="chat-meta-name">AvaBot (Productivity Assistant)</strong>
+                  <span class="chat-status-text">
+                    ● Active Intelligence
+                  </span>
+                </div>
+              </div>
+
+              <!-- Actions block -->
+              <div class="chat-actions">
+                <button id="clear-history-btn" class="chat-clear-btn">
+                  Clear History
+                </button>
+              </div>
+            </div>
+
+            <!-- Scrollable chat thread stream -->
+            <div id="chat-history" class="chat-stream-window">
+              <!-- Dynamically rendered by app.js -->
+            </div>
+
+            <!-- Recommended Chips quick query bar -->
+            <div class="recommended-bar-pane">
+              <span class="recommended-heading">
+                <!-- Help icon vector -->
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="10"/>
+                  <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/>
+                  <line x1="12" y1="17" x2="12.01" y2="17"/>
+                </svg>
+                Recommended:
+              </span>
+              <button class="rec-chip-btn" data-prompt="What is the ROI of our deployment?">ROI analysis?</button>
+              <button class="rec-chip-btn" data-prompt="Will this model replace my job?">Will I lose my job?</button>
+              <button class="rec-chip-btn" data-prompt="What are the security risks?">Security risks?</button>
+              <button class="rec-chip-btn" data-prompt="What is the cost of implementing this?">Implementation cost?</button>
+            </div>
+
+            <!-- Form submission input frame -->
+            <form id="chat-form-ui" class="chat-form-box">
+              <input 
+                type="text" 
+                id="user-input-box" 
+                class="chat-text-input" 
+                placeholder="Ask AvaBot about S1 ROI, implementation risks, or team impact..." 
+                autocomplete="off"
+              />
+              <button type="submit" class="chat-submit-btn">Send</button>
+            </form>
+
+          </div>
+
+        </section>
+
+      </main>
+
+      <!-- 3. PAGE FOOTER BRAND METADATA -->
+      <footer class="app-footer">
+        <span class="footer-brand-title">
+          AvaBot Operations Sandbox Model v2.4.0 — Decoupled Outcome Retainer Simulator
+        </span>
+        <div class="footer-meta-pane">
+          <span>Active Sandbox: <strong id="footer-active-scenario" class="footer-meta-active-badge">S1</strong></span>
+          <span>•</span>
+          <span>Security Protocol: <strong class="footer-meta-protocol">Zero-Trust Partition Ready</strong></span>
+        </div>
+      </footer>
+
+    </div>
+
+    <!-- Data structures and interactive scripting execution scripts order -->
+    <script src="qa-bank.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
